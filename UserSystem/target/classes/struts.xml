@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="list" class="com.yc.us.web.action.UserAction"
+			method="list">
+			<result>/page/list.jsp</result>
+		</action>
+
+		<action name="detail" class="com.yc.us.web.action.UserAction"
+			method="detail">
+			<result>/page/detail.jsp</result>
+		</action>
+
+		<action name="update" class="com.yc.us.web.action.UserAction"
+			method="update">
+			<result>/page/update.jsp</result>
+		</action>
+
+		<action name="doupdate" class="com.yc.us.web.action.UserAction"
+			method="doupdate">
+			<result type="redirectAction">/list.action</result>
+			<result name="fail">/page/update.jsp</result>
+		</action>
+	</package>
+
+</struts>

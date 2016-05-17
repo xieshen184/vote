@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<!-- 日志输出 -->
+    <Appenders>
+    	<!-- 在控制台输出 -->
+        <Console name="STDOUT" target="SYSTEM_OUT">
+        	<!-- 输出日志格式 -->
+            <PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>
+        </Console>
+        
+        <!-- 在文件输出日志 -->
+        <File name = "file" fileName="d:\struts.log">
+        	<!-- 输出日志格式 -->
+        	<PatternLayout pattern="%d %-5p %c{2} {%F:%L} - %m%n"/>
+        </File>
+    </Appenders>
+    <!-- 日志输出级别 -->
+	    <Loggers>
+	    <!-- 局部输出级别
+	    	name : 是指所在的包
+	    	level : 输出级别 
+	    	
+	    	 <Logger name="com.yc" level="debug"/>是指com.yc包所以类的日志输出级别为debug
+	    	-->
+	   
+	        <Logger name="com.yc" level="debug"/> 
+	        <!-- 总输出级别 -->
+	        <Root level="warn">
+	            <AppenderRef ref="STDOUT"/>
+	            <AppenderRef ref="file"/>
+	        </Root>
+	    </Loggers>
+</Configuration>
